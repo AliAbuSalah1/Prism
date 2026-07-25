@@ -1,9 +1,11 @@
 from fastapi import FastAPI
+from app.core.config import settings
+
 
 app = FastAPI(
-    title="Prism API",
-    description="AI Data Analysis Platform",
-    version="0.1.0"
+    title=settings.PROJECT_NAME,
+    version=settings.VERSION,
+    description="AI Data Analysis Platform"
 )
 
 
@@ -11,7 +13,7 @@ app = FastAPI(
 def home():
     return {
         "message": "Welcome to Prism",
-        "version": "0.1.0"
+        "environment": settings.ENVIRONMENT
     }
 
 
